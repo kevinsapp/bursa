@@ -1,0 +1,82 @@
+<?php
+/**
+ * The template for displaying the archives
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#category
+ *
+ * @package Outsiders_Republic
+ * @subpackage Bursa
+ * @since 1.0.0
+ */
+
+get_header(); ?>
+
+<?php
+  // Determine whether or not the sidebar is active,
+  // so we can adjust the layout arrordingly.
+  $sidebar = is_active_sidebar( 'sidebar' );
+  $class = $sidebar ? 'col-md-8' : 'col-md-12';
+?>
+
+  <div class="container">
+    <div class="row">
+      <div class="<?= $class ?>">
+        <h1 class="text-dark">
+          <?php
+            if ( is_category() ) :
+              single_cat_title();
+            elseif ( is_tag() ) :
+              single_tag_title();
+            elseif ( is_author() ) :
+              the_author();
+            elseif ( is_day() ) :
+              get_the_date();
+            elseif ( is_month() ) : ?>
+              Archive for the Month of <?php echo get_the_date('F Y') ?><?php
+            elseif ( is_year() ) : ?>
+              Archive for the Year <?php echo get_the_date('Y') ?><?php
+            else : ?>
+              Selection<?php
+            endif
+          ?>
+        </h1>
+
+        <div class="card-columns">
+          <?php while ( have_posts() ) : the_post(); ?>
+            <div class="card">
+              <a href="<?php the_permalink() ?>">
+                <img src="<?php the_post_thumbnail_url() ?>" class="card-img-top" alt="<?php the_post_thumbnail_caption() ?>">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="<?php the_permalink() ?>">
+                    <?php the_title() ?>
+                  </a>
+                </h5>
+                <p class="card-text"><?php the_excerpt() ?></p>
+                <p class="card-text">
+                  <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+                    <?php the_author(); ?>
+                  </a>
+                  <span class="text-muted"><?php the_date() ?></span><br />
+                  <small class="text-muted">
+                    Categories: <?php the_category(', ') ?> <?php the_tags( '| Tags: ') ?>
+                  </small>
+                </p>
+              </div>
+            </div>
+          <?php endwhile ?>
+        </div>
+      </div><!-- .col -->
+
+      <?php if( $sidebar ) : ?>
+       <aside class="col-md-4">
+         <?php dynamic_sidebar( 'sidebar' ) ?>
+       </aside><!-- .col-md-4 -->
+      <?php endif ?>
+    </div><!-- .row -->
+
+  </div><!-- .container -->
+
+<?php get_footer() ?>
