@@ -29,7 +29,7 @@ get_header();
             </p>
             <p class="lead">
               <a href="<?php the_permalink() ?>" class="text-white font-weight-bold stretched-link">
-                Continue Reading...
+                Continue reading...
               </a>
             </p>
           </div>
@@ -39,7 +39,7 @@ get_header();
   </div>
 
   <?php
-    // Ignores that posts are sticky and show the posts in the default order.
+    // Shows posts in the default order and ignores that some of them are sticky.
     $posts_args = array( 'post__not_in' => get_option( 'sticky_posts' ) );
     $posts_query = new WP_Query( $posts_args );
   ?>
@@ -56,7 +56,12 @@ get_header();
           <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
             <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
           </a>
-          <?php the_content() ?>
+          <p>
+            <?php the_content() ?>&nbsp;&rarr;
+            <a href="<?php the_permalink() ?>">
+              Continue reading <span class="font-italic">"<?php the_title() ?>"</span>
+            </a>
+          </p>
         </article>
       <?php endwhile ?>
     </col><!-- .col -->
