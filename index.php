@@ -25,22 +25,25 @@ get_header();
     <!-- <div class="col-md-2"></div> -->
     <div class="col-md-8">
       <?php while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
-        <article <?php post_class( 'mb-4 border-bottom' ) ?> >
-          <h1>
-            <a href="<?php the_permalink() ?>" class="text-dark">
-              <?php the_title() ?>
-            </a>
-          </h1>
-          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-            <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
-          </a>
-          <p>
-            <?php the_content() ?>&nbsp;&rarr;
-            <a href="<?php the_permalink() ?>">
-              Continue reading <span class="font-italic">"<?php the_title() ?>"</span>
-            </a>
-          </p>
-        </article>
+        <div class="card mb-3 border-0">
+          <div class="row">
+            <div class="col-md-4 rounded" style="background: url(<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium' ) ); ?>) 50% 50% no-repeat; min-height: 225px;">
+              <a href="<?php the_permalink() ?>" class="stretched-link"></a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title"><?php the_title() ?></h3>
+                <p class="card-text">
+                  <?php the_content() ?>&nbsp;&rarr;
+                  <a href="<?php the_permalink() ?>" class="stretched-link">
+                    Continue reading <span class="font-italic">"<?php the_title() ?>"</span>
+                  </a>
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
       <?php endwhile ?>
     </col><!-- .col -->
   </div><!-- .row -->
