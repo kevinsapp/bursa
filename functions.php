@@ -124,8 +124,8 @@ add_action( 'widgets_init', 'bursa_widgets_init' );
  */
 function bursa_featured_posts( $cout = 1 ) {
   $args = array(
-    'posts_per_page' => $cout,
-    'post__in'  => get_option( 'sticky_posts' ),
+    'posts_per_page'      => $cout,
+    'post__in'            => get_option( 'sticky_posts' ),
     'ignore_sticky_posts' => 1
   );
   $query = new WP_Query( $args );

@@ -37,3 +37,8 @@ video {
 	max-width: 100%;
 	vertical-align: middle;
 }
+
+/* Featured post */
+#bursa-featured-text-area {
+  background: rgba(52, 58, 64, 0.8) !important;
+}

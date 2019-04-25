@@ -14,29 +14,7 @@ get_header();
 
 <main role="main" class="container">
 
-  <?php $fp = bursa_featured_posts() ?>
-  <div class="row">
-    <div class="col px-0">
-      <?php while ( $fp->have_posts() ) : $fp->the_post(); ?>
-        <?php
-          $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-        ?>
-        <div class="jumbotron p-4 p-md-5 rounded text-white" style="background-image: url(<?php echo esc_url( $featured_img_url ) ?>);">
-          <div class="col-md-8 bg-dark rounded or-featured-text-area" style="background: rgba(52, 58, 64, 0.8) !important;">
-            <h1 class="display-4"><?php the_title() ?></h1>
-            <p class="lead my-3">
-              <?php echo strip_tags( get_the_excerpt() ); ?>
-            </p>
-            <p class="lead">
-              <a href="<?php the_permalink() ?>" class="text-white font-weight-bold stretched-link">
-                Continue reading...
-              </a>
-            </p>
-          </div>
-        </div><!-- .jumbotron -->
-      <?php endwhile ?>
-    </div>
-  </div>
+  <?php get_template_part( 'template-parts/content', 'feature' ); ?>
 
   <?php
     // Shows posts in the default order and ignores that some of them are sticky.
