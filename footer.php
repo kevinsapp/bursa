@@ -3,8 +3,8 @@
  * The template for displaying the footer
  */
 ?>
-  <footer>
-    <div class="container">
+  <footer class="border-top">
+    <div class="container py-4">
       <div class="row">
         <div class="col">
           <?php dynamic_sidebar( 'footer-content' ) ?>

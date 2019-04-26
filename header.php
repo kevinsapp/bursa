@@ -18,8 +18,8 @@
 </head>
 
 <body <?php body_class() ?> >
-  <header class="container mb-4">
-    <div class="row border-bottom py-2 bg-dark shadow-sm rounded-bottom">
+  <header class="container">
+    <div class="row border-bottom bg-dark shadow-sm rounded-bottom">
       <div class="col py-2">
         <h2 class="mb-0">
           <a href="<?php echo home_url() ?>" class="text-white">
@@ -33,14 +33,14 @@
     </div><!-- .row -->
 
 
-    <div class="row border-bottom py-2">
+    <div class="row py-2">
       <div class="col pl-0">
         <?php
           wp_nav_menu(
             array(
               'theme_location' => 'main',
               'container' => 'nav',
-              'menu_class' => 'nav'
+              'menu_class' => 'nav lead'
             )
           );
         ?><!-- .nav -->
