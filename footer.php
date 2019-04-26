@@ -3,7 +3,7 @@
  * The template for displaying the footer
  */
 ?>
-  <footer class="border-top">
+  <footer>
     <div class="container py-4">
       <div class="row">
         <div class="col">
