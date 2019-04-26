@@ -11,16 +11,9 @@
 
 get_header(); ?>
 
-<?php
-  // Determine whether or not the sidebar is active,
-  // so we can adjust the layout arrordingly.
-  $sidebar = is_active_sidebar( 'sidebar' );
-  $class = $sidebar ? 'col-md-8' : 'col-md-12';
-?>
-
   <div class="container">
-    <div class="row">
-      <div class="<?= $class ?>">
+    <div class="row border-top">
+      <div class="col">
         <h1 class="text-dark">
           <?php
             if ( is_category() ) :
@@ -40,6 +33,17 @@ get_header(); ?>
             endif
           ?>
         </h1>
+      </div><!-- .col -->
+    </div><!-- .row -->
+
+    <?php
+      // Determine whether or not the sidebar is active,
+      // so we can adjust the layout arrordingly.
+      $sidebar = is_active_sidebar( 'sidebar' );
+      $class = $sidebar ? 'col-md-8' : 'col-md-12';
+    ?>
+    <div class="row">
+      <div class="<?= $class ?>">
 
         <div class="card-columns">
           <?php while ( have_posts() ) : the_post(); ?>
