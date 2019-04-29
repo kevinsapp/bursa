@@ -20,28 +20,23 @@ get_header();
 ?>
 
  <div class="container">
-   <div class="row">
-    <div class="<?= $class ?>">
-     <?php while ( have_posts() ) : the_post(); ?>
-       <article <?php post_class() ?> >
-         <h1 class="text-dark"><?php the_title() ?></h1>
-         <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
-         <?php the_content() ?>
+   <div class="row border-top">
+     <div class="<?= $class ?>">
+     <?php
+     while ( have_posts() ) : the_post();
 
-         <section>
-           <small>
-             <strong><?php the_author_link() ?></strong><br>
-             <time><?php the_date() ?></time><br>
-             Categories: <?php the_category(', ') ?><br>
-             <?php the_tags() ?>
-           </small>
-         </secion>
-       </article>
-     <?php endwhile ?>
+        // Include the single post content template.
+  			get_template_part( 'template-parts/content', 'single' );
+
+     endwhile;
+     ?>
     </div><!-- .col-md-x -->
 
     <?php if( $sidebar ) : ?>
      <aside class="col-md-4">
+       <h1 style="visibility: hidden">
+         Additional Content
+       </h1><!-- add space for alignment -->
        <?php dynamic_sidebar( 'sidebar' ) ?>
      </aside><!-- .col-md-4 -->
     <?php endif ?>
