@@ -42,6 +42,12 @@ get_header();
     <?php endif ?>
 
    </div><!-- .row -->
+
+   <div class="row">
+     <div class="<?= $class ?> border-top pt-4">
+       <?php comments_template(); ?>
+     </div>
+   </div>
  </div><!-- .container -->
 
  <?php get_footer(); ?>
