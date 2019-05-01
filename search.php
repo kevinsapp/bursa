@@ -22,7 +22,7 @@ get_header();
 <div class="container">
   <div class="row">
     <!-- <div class="col-md-2"></div> -->
-    <div class="<?= $class ?>">
+    <div class="<?php echo $class ?>">
       <?php while ( have_posts() ) : the_post(); ?>
         <article <?php post_class( 'mb-4 border-bottom' ) ?> >
           <h3>

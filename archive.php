@@ -20,7 +20,7 @@ get_header();
         $sidebar = is_active_sidebar( 'sidebar' );
         $class = $sidebar ? 'col-md-8' : 'col-md-12';
       ?>
-      <div class="<?= $class ?>">
+      <div class="<?php echo $class ?>">
         <h1 class="text-dark">
           <?php
             if ( is_category() ) :

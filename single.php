@@ -21,7 +21,7 @@ get_header();
 
  <div class="container">
    <div class="row border-top">
-     <div class="<?= $class ?>">
+     <div class="<?php echo $class ?>">
      <?php
      while ( have_posts() ) : the_post();
 
@@ -44,7 +44,7 @@ get_header();
    </div><!-- .row -->
 
    <div class="row">
-     <div class="<?= $class ?> border-top pt-4">
+     <div class="<?php echo $class ?> border-top pt-4">
        <?php comments_template(); ?>
      </div>
    </div>
