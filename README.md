@@ -1,1 +1,1 @@
-# Bursa - A Wordpress Theme
+# Bursa - A WordPress Theme

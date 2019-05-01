@@ -4,7 +4,7 @@ Theme Name: Bursa
 Theme URI: https://github.com/kevinsapp/bursa
 Author: Kevin Sapp
 Author URI: https://outsidersrepublic.com
-Description: Bursa Wordpress Theme
+Description: Bursa WordPress Theme
 Requires at least: WordPress 5.1.1
 Version: 0.1
 License: GNU General Public License v3
@@ -33,12 +33,12 @@ video {
 	vertical-align: middle;
 }
 
-/* Wordpress imgs wrapped in figures */
+/* WordPress imgs wrapped in figures */
 figure > img {
   border-radius: .25rem !important;
 }
 
-/* Wordpress reply divs which wrap the reply links in the comments */
+/* WordPress reply divs which wrap the reply links in the comments */
 div.reply {
   margin-bottom: 1rem;
 }

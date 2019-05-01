@@ -12,7 +12,7 @@
  * @since 1.0.0
  *
  * Much of the code in this file is based on comments.php from the
- * Twenty_Sixteen Wordpress theme.
+ * Twenty_Sixteen WordPress theme.
  */
 
 /*
@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 <div id="comments">
 
   <?php
-  // Code based on comments.php from the Wordpress theme Twenty_Sixteen
+  // Code based on comments.php from the WordPress theme Twenty_Sixteen
   if ( have_comments() ) : ?>
 		<h3 class="comments-title">
 			<?php
