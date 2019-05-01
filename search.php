@@ -26,18 +26,18 @@ get_header();
       <?php while ( have_posts() ) : the_post(); ?>
         <article <?php post_class( 'mb-4 border-bottom' ) ?> >
           <h3>
-            <a href="<?php the_permalink() ?>" class="text-dark">
-              <?php the_title() ?>
+            <a href="<?php the_permalink(); ?>" class="text-dark">
+              <?php the_title(); ?>
             </a>
           </h3>
-          <?php the_excerpt() ?>
+          <?php the_excerpt(); ?>
         </article>
       <?php endwhile ?>
     </div><!-- .col-md-x -->
 
     <?php if( $sidebar ) : ?>
      <aside class="col-md-4">
-       <?php dynamic_sidebar( 'sidebar' ) ?>
+       <?php dynamic_sidebar( 'sidebar' ); ?>
      </aside><!-- .col-md-4 -->
     <?php endif ?>
 

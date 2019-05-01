@@ -2,12 +2,15 @@
 /**
  * The template for displaying all single posts and attachments
  *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
  * @package Outsiders_Republic
  * @subpackage Bursa
  * @since 1.0.0
  */
 
-get_header(); ?>
+get_header();
+?>
 
 <article <?php post_class() ?> >
   <h1 class="text-dark"><?php the_title() ?></h1>

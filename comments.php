@@ -5,6 +5,8 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
  * @package Outsiders_Republic
  * @subpackage Bursa
  * @since 1.0.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * TThe main template file
+ * The main template file
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#home-page-display
  *
@@ -28,15 +28,15 @@ get_header();
         <div class="card mb-3 border-0">
           <div class="row">
             <div class="col-md-4 rounded" style="background: url(<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium' ) ); ?>) 50% 50% no-repeat; min-height: 225px;">
-              <a href="<?php the_permalink() ?>" class="stretched-link"></a>
+              <a href="<?php the_permalink(); ?>" class="stretched-link"></a>
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h3 class="card-title"><?php the_title() ?></h3>
+                <h3 class="card-title"><?php the_title(); ?></h3>
                 <p class="card-text">
-                  <?php the_content() ?>&nbsp;&rarr;
-                  <a href="<?php the_permalink() ?>" class="stretched-link">
-                    Continue reading <span class="font-italic">"<?php the_title() ?>"</span>
+                  <?php the_content(); ?>&nbsp;&rarr;
+                  <a href="<?php the_permalink(); ?>" class="stretched-link">
+                    Continue reading <span class="font-italic">"<?php the_title(); ?>"</span>
                   </a>
                 </p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

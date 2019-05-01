@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the archives
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#category
  *
@@ -9,7 +9,8 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+get_header();
+?>
 
   <div class="container">
     <div class="row border-top">
@@ -43,24 +44,24 @@ get_header(); ?>
         <div class="card-columns">
           <?php while ( have_posts() ) : the_post(); ?>
             <div class="card">
-              <a href="<?php the_permalink() ?>">
-                <img src="<?php the_post_thumbnail_url() ?>" class="card-img-top" alt="<?php the_post_thumbnail_caption() ?>">
+              <a href="<?php the_permalink(); ?>">
+                <img src="<?php the_post_thumbnail_url(); ?>" class="card-img-top" alt="<?php the_post_thumbnail_caption() ?>">
               </a>
 
               <div class="card-body">
                 <h5 class="card-title">
-                  <a href="<?php the_permalink() ?>">
-                    <?php the_title() ?>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
                   </a>
                 </h5>
-                <p class="card-text"><?php the_excerpt() ?></p>
+                <p class="card-text"><?php the_excerpt(); ?></p>
                 <p class="card-text">
                   <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
                     <?php the_author(); ?>
                   </a>
                   <span class="text-muted"><?php the_date() ?></span><br />
                   <small class="text-muted">
-                    Categories: <?php the_category(', ') ?> <?php the_tags( '| Tags: ') ?>
+                    Categories: <?php the_category(', '); ?> <?php the_tags( '| Tags: '); ?>
                   </small>
                 </p>
               </div>
@@ -74,11 +75,11 @@ get_header(); ?>
          <h1 style="visibility: hidden">
            Additional Content
          </h1><!-- add space for alignment -->
-         <?php dynamic_sidebar( 'sidebar' ) ?>
+         <?php dynamic_sidebar( 'sidebar' ); ?>
        </aside><!-- .col-md-4 -->
       <?php endif ?>
     </div><!-- .row -->
 
   </div><!-- .container -->
 
-<?php get_footer() ?>
+<?php get_footer(); ?>

@@ -23,11 +23,6 @@ https://getbootstrap.com/docs/4.3/components/card/#card-columns
   }
 }
 
-/* Wordpress imgs wrapped in figures */
-figure > img {
-  border-radius: .25rem !important;
-}
-
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
@@ -38,12 +33,17 @@ video {
 	vertical-align: middle;
 }
 
+/* Wordpress imgs wrapped in figures */
+figure > img {
+  border-radius: .25rem !important;
+}
+
+/* Wordpress reply divs which wrap the reply links in the comments */
+div.reply {
+  margin-bottom: 1rem;
+}
+
 /* Featured post */
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
-}
-
-/* Reply divs which wrap the reply links in the comments */
-div.reply {
-  margin-bottom: 1rem;
 }
