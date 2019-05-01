@@ -120,6 +120,19 @@ function bursa_widgets_init() {
 }
 add_action( 'widgets_init', 'bursa_widgets_init' );
 
+/**
+ * Enqueue styles and scripts.
+ *
+ * @since 1.0.0
+ */
+function bursa_scripts() {
+  // Bootstrap styles
+  $bootstrap_url = 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+  wp_enqueue_style( 'bootstrap4', $bootstrap_url, array(), null );
+  // Theme stylesheet.
+	wp_enqueue_style( 'bursa-style', get_stylesheet_uri() );
+}
+add_action( 'wp_enqueue_scripts', 'bursa_scripts' );
 
 /*******************************************************************************
  * Custom functions
