@@ -42,3 +42,8 @@ video {
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
 }
+
+/* Reply divs which wrap the reply links in the comments */
+div.reply {
+  margin-bottom: 1rem;
+}
