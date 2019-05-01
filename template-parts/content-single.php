@@ -24,8 +24,8 @@ get_header();
             echo get_avatar(
               get_the_author_meta( 'ID' ),
               '60',
-              $default,
-              $alt,
+              '',
+              '',
               array( 'class' => array( 'rounded-circle' ) )
             );
           ?>
