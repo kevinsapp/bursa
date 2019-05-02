@@ -12,8 +12,8 @@
 get_header();
 ?>
 
-<article <?php post_class() ?> >
-  <h1 class="text-dark"><?php the_title() ?></h1>
+<article <?php post_class(); ?> >
+  <h1 class="text-dark"><?php the_title(); ?></h1>
   <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
 
   <div class="container">
@@ -31,16 +31,16 @@ get_header();
           ?>
           <br />
           <small>
-            <strong><?php the_author_link() ?></strong><br>
-            <time><?php the_date() ?></time><br>
-            Categories: <?php the_category(', ') ?><br>
-            <?php the_tags() ?>
+            <strong><?php the_author_link(); ?></strong><br>
+            <time><?php the_date(); ?></time><br>
+            Categories: <?php the_category(', '); ?><br>
+            <?php the_tags(); ?>
           </small>
         </secion>
       </div><!-- .col -->
 
       <div class="col-md-9">
-        <?php the_content() ?>
+        <?php the_content(); ?>
       </div><!-- .col -->
     </div><!-- .row -->
   </div><!-- .container -->
