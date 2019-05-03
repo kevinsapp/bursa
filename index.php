@@ -39,7 +39,11 @@ get_header();
                     Continue reading <span class="font-italic">"<?php the_title(); ?>"</span>
                   </a>
                 </p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <time><?php echo get_the_date(); ?></time>
+                  </small>
+                </p>
               </div>
             </div>
           </div>
