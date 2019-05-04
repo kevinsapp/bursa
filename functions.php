@@ -191,3 +191,26 @@ function bursa_featured_posts( $cout = 1 ) {
 
   return $query;
 }
+
+/**
+ * Prints pagination links, wrapped in <ul><li></li></ul> for blog and archive
+ * pages. <li>'s and <a>'s include Bootstrap pagination related classes.
+ *
+ * @since Bursa 1.0
+ */
+function bursa_page_links() {
+	$html = '<ul class="pagination">';
+	$links = paginate_links( array( 'type' => 'array' ) );
+
+	foreach ( $links as $link ) {
+		$link = preg_replace( '/page-numbers/', 'page-numbers page-link', $link );
+		if ( strpos( $link, 'current' ) !== false ) {
+			$html .= '<li class="page-item active">' . $link . '</li>';
+		} else {
+			$html .= '<li class="page-item">' . $link . '</li>';
+		}
+	}
+	$html .= '</ul>'; // close the <ul? tag
+
+	echo $html;
+}
