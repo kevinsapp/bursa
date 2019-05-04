@@ -43,5 +43,11 @@ get_header();
         <?php the_content(); ?>
       </div><!-- .col -->
     </div><!-- .row -->
+
+    <div class="row">
+      <div class="col">
+        <?php wp_link_pages(); ?>
+      </div>
+    </div>
   </div><!-- .container -->
 </article>
