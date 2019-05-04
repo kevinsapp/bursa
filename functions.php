@@ -210,7 +210,7 @@ function bursa_page_links() {
 			$html .= '<li class="page-item">' . $link . '</li>';
 		}
 	}
-	$html .= '</ul>'; // close the <ul? tag
+	$html .= '</ul>'; // close the <ul> tag
 
 	echo $html;
 }
