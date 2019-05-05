@@ -7,7 +7,9 @@ Bursa is a minimalist responsive WordPress theme. It is styled with [Bootstrap 4
 ## Third-party Resources
 
 Bootstrap, Copyright 2011-2019 the Bootstrap Authors and Twitter, Inc.
+
 Licenses: MIT
+
 Source: https://github.com/twbs/bootstrap
 
 ## Copyright
