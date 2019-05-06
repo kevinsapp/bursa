@@ -26,11 +26,6 @@ Text Domain: bursa
  	vertical-align: middle;
  }
 
- /* WordPress imgs are generally wrapped in figures */
- figure > img {
-   border-radius: .25rem !important;
- }
-
  /**
   * Bootstrap overrides
   */
