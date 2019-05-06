@@ -20,7 +20,7 @@ get_header();
 ?>
 
  <div class="container">
-   <div class="row border-top">
+   <div class="row border-top pb-4">
      <div class="<?php echo $class ?>">
      <?php
      while ( have_posts() ) : the_post();
