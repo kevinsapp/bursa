@@ -26,6 +26,11 @@ Text Domain: bursa
  	vertical-align: middle;
  }
 
+ img {
+   max-width: 100%;
+   height: auto;
+ }
+
  /**
   * Bootstrap overrides
   */
@@ -126,6 +131,7 @@ div.reply {
 /**
  * Custom theme classes
  */
+ 
 /* Featured post */
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
