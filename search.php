@@ -12,17 +12,10 @@
 get_header();
 ?>
 
-<?php
-  // Determine whether or not the sidebar is active,
-  // so we can adjust the layout arrordingly.
-  $sidebar = is_active_sidebar( 'sidebar' );
-  $class = $sidebar ? 'col-md-8' : 'col-md-12';
-?>
-
 <div class="container">
   <div class="row">
     <!-- <div class="col-md-2"></div> -->
-    <div class="<?php echo $class ?>">
+    <div class="col-md-8">
       <?php while ( have_posts() ) : the_post(); ?>
         <article <?php post_class( 'mb-4 border-bottom' ) ?> >
           <h3>
@@ -35,7 +28,7 @@ get_header();
       <?php endwhile ?>
     </div><!-- .col-md-x -->
 
-    <?php if( $sidebar ) : ?>
+    <?php if( is_active_sidebar( 'sidebar' ) ) : ?>
      <aside class="col-md-4">
        <?php dynamic_sidebar( 'sidebar' ); ?>
      </aside><!-- .col-md-4 -->
