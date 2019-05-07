@@ -67,6 +67,10 @@ get_header();
               </div>
             </div>
           <?php endwhile ?>
+
+          <nav aria-label="Posts page navigation">
+            <?php bursa_posts_page_links(); ?>
+          </nav>
         </div>
       </div><!-- .col -->
 

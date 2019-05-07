@@ -218,8 +218,10 @@ function bursa_query_posts_exclude_sticky() {
  * archive pages. <li>'s and <a>'s include Bootstrap pagination related classes.
  *
  * @since Bursa 1.0
+ *
+ * @param WP_Query $query an instance of WP_Query; generally a custom query.
  */
-function bursa_posts_page_links( WP_Query $query ) {
+function bursa_posts_page_links( WP_Query $query = NULL ) {
 	/*
 	 * IMPORTANT: This function replaces the global $wp_query with the $query
 	 * passed in by the caller. This seems to be necessary in order to get
@@ -230,17 +232,20 @@ function bursa_posts_page_links( WP_Query $query ) {
 	 * https://wordpress.stackexchange.com/questions/120407/how-to-fix-pagination-for-custom-loops
 	 */
 
-	// Specify a reference the global $wp_query
-	global $wp_query;
+	$has_query = isset( $query );
+	if( $has_query ) {
+		// Specify a reference the global $wp_query
+	 	global $wp_query;
 
-	// Make a local (backup) copy of the global $wp_query.
-	$orig_query = $wp_query;
+		// Make a local (backup) copy of the global $wp_query.
+		$orig_query = $wp_query;
 
-	// NULLify the global $wp_query.
-	$wp_query = NULL;
+		// NULLify the global $wp_query.
+		$wp_query = NULL;
 
-	// Replace the global $wp_query with the caller's query.
-	$wp_query = $query;
+		// Replace the global $wp_query with the caller's query.
+		$wp_query = $query;
+	}
 
 	// Wrap pagination links in our custom html.
 	$html = '<ul class="pagination">';
@@ -256,8 +261,10 @@ function bursa_posts_page_links( WP_Query $query ) {
 	}
 	$html .= '</ul>'; // close the <ul> tag
 
-	// Restore the global $wp_query from the local copy.
-	$wp_query = $orig_query;
+	if( $has_query ) {
+		// Restore the global $wp_query from the local copy.
+		$wp_query = $orig_query;
+	}
 
 	// Print our pagination links.
 	echo $html;
