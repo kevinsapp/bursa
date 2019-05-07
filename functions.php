@@ -214,8 +214,7 @@ function bursa_query_posts_exclude_sticky() {
 }
 
 /**
- * Prints posts pagination links, wrapped in <ul><li></li></ul> for blog and
- * archive pages. <li>'s and <a>'s include Bootstrap pagination related classes.
+ * Prints posts pagination links.
  *
  * @since Bursa 1.0
  *
@@ -231,9 +230,10 @@ function bursa_posts_page_links( WP_Query $query = NULL ) {
 	 * problem and solution.
 	 * https://wordpress.stackexchange.com/questions/120407/how-to-fix-pagination-for-custom-loops
 	 */
-
-	$has_query = isset( $query );
-	if( $has_query ) {
+	if( is_null( $query ) ) {
+		// Print posts pagination links.
+		echo bursa_get_posts_page_links();
+	} else {
 		// Specify a reference the global $wp_query
 	 	global $wp_query;
 
@@ -245,27 +245,42 @@ function bursa_posts_page_links( WP_Query $query = NULL ) {
 
 		// Replace the global $wp_query with the caller's query.
 		$wp_query = $query;
-	}
 
-	// Wrap pagination links in our custom html.
-	$html = '<ul class="pagination">';
-	$links = paginate_links( array( 'type' => 'array' ) );
+		// Print posts pagination links.
+		echo bursa_get_posts_page_links();
 
-	foreach ( $links as $link ) {
-		$link = preg_replace( '/page-numbers/', 'page-numbers page-link', $link );
-		if ( strpos( $link, 'current' ) ) {
-			$html .= '<li class="page-item active">' . $link . '</li>';
-		} else {
-			$html .= '<li class="page-item">' . $link . '</li>';
-		}
-	}
-	$html .= '</ul>'; // close the <ul> tag
-
-	if( $has_query ) {
 		// Restore the global $wp_query from the local copy.
 		$wp_query = $orig_query;
 	}
+}
 
-	// Print our pagination links.
-	echo $html;
+/**
+ * Returns posts pagination links, wrapped in <ul><li></li></ul>.
+ * <li>'s and <a>'s include Bootstrap pagination related classes.
+ * Useful for for blog, archive, and search pages, etc.
+ *
+ * @since Bursa 1.0
+ *
+ * @return string and HTML string of pagination links wrapped in other elements.
+ */
+function bursa_get_posts_page_links() {
+	$html = '';
+	$links = paginate_links( array( 'type' => 'array' ) );
+
+	if( isset( $links ) ) {
+		$html = '<ul class="pagination">';
+
+		foreach ( $links as $link ) {
+			$link = preg_replace( '/page-numbers/', 'page-numbers page-link', $link );
+			if ( strpos( $link, 'current' ) ) {
+				$html .= '<li class="page-item active">' . $link . '</li>';
+			} else {
+				$html .= '<li class="page-item">' . $link . '</li>';
+			}
+		}
+
+		$html .= '</ul>'; // close the <ul> tag
+	}
+
+	return $html;
 }
