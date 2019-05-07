@@ -26,6 +26,10 @@ get_header();
           <?php the_excerpt(); ?>
         </article>
       <?php endwhile ?>
+
+      <nav aria-label="Posts page navigation">
+        <?php bursa_posts_page_links(); ?>
+      </nav>
     </div><!-- .col-md-x -->
 
     <?php if( is_active_sidebar( 'sidebar' ) ) : ?>
