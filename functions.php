@@ -174,37 +174,81 @@ add_action( 'wp_enqueue_scripts', 'bursa_scripts' );
  ******************************************************************************/
 
 /**
- * Return a specified number of sticky posts.
+ * Return sticky posts.
  *
  * @since Bursa 1.0
  *
- * @param integer $cout number of posts returned by the query.
  * @return WP_Query an instance of WP_Query
  */
-function bursa_featured_posts( $cout = 1 ) {
+function bursa_query_sticky_posts() {
   $args = array(
-    'posts_per_page'      => $cout,
     'post__in'            => get_option( 'sticky_posts' ),
     'ignore_sticky_posts' => 1
   );
-  $query = new WP_Query( $args );
 
-  return $query;
+	return new WP_Query( $args );
 }
 
 /**
- * Prints pagination links, wrapped in <ul><li></li></ul> for blog and archive
- * pages. <li>'s and <a>'s include Bootstrap pagination related classes.
+ * Return a paginated collection of posts excluding sticky posts.
+ *
+ * @since Bursa 1.0
+ *
+ * @return WP_Query an instance of WP_Query
+ */
+function bursa_query_posts_exclude_sticky() {
+	if ( get_query_var('paged') ) {
+		$paged = get_query_var('paged');
+	} elseif ( get_query_var('page') ) { // 'page' is used instead of 'paged' on Static Front Page
+		$paged = get_query_var('page');
+	} else {
+		$paged = 1;
+	}
+
+	$args = array(
+		'post__not_in'	=> get_option( 'sticky_posts' ),
+		'paged' 				=> $paged,
+	);
+
+	return new WP_Query( $args );
+}
+
+/**
+ * Prints posts pagination links, wrapped in <ul><li></li></ul> for blog and
+ * archive pages. <li>'s and <a>'s include Bootstrap pagination related classes.
  *
  * @since Bursa 1.0
  */
-function bursa_page_links() {
+function bursa_posts_page_links( WP_Query $query ) {
+	/*
+	 * IMPORTANT: This function replaces the global $wp_query with the $query
+	 * passed in by the caller. This seems to be necessary in order to get
+	 * posts pagination links to work with a custom query (instance of WP_Query).
+	 *
+	 * See the following StackOverflow Q&A for a detailed description of the
+	 * problem and solution.
+	 * https://wordpress.stackexchange.com/questions/120407/how-to-fix-pagination-for-custom-loops
+	 */
+
+	// Specify a reference the global $wp_query
+	global $wp_query;
+
+	// Make a local (backup) copy of the global $wp_query.
+	$orig_query = $wp_query;
+
+	// NULLify the global $wp_query.
+	$wp_query = NULL;
+
+	// Replace the global $wp_query with the caller's query.
+	$wp_query = $query;
+
+	// Wrap pagination links in our custom html.
 	$html = '<ul class="pagination">';
 	$links = paginate_links( array( 'type' => 'array' ) );
 
 	foreach ( $links as $link ) {
 		$link = preg_replace( '/page-numbers/', 'page-numbers page-link', $link );
-		if ( strpos( $link, 'current' ) !== false ) {
+		if ( strpos( $link, 'current' ) ) {
 			$html .= '<li class="page-item active">' . $link . '</li>';
 		} else {
 			$html .= '<li class="page-item">' . $link . '</li>';
@@ -212,5 +256,9 @@ function bursa_page_links() {
 	}
 	$html .= '</ul>'; // close the <ul> tag
 
+	// Restore the global $wp_query from the local copy.
+	$wp_query = $orig_query;
+
+	// Print our pagination links.
 	echo $html;
 }

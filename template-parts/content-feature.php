@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php $featured_posts = bursa_featured_posts() ?>
+<?php $featured_posts = bursa_query_sticky_posts() ?>
 <?php while ( $featured_posts->have_posts() ) : $featured_posts->the_post(); ?>
   <div class="row">
    <div class="col px-0">

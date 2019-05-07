@@ -16,15 +16,12 @@ get_header();
 
   <?php get_template_part( 'template-parts/content', 'feature' ); ?>
 
-  <?php
-    // Shows posts in the default order and ignores that some of them are sticky.
-    $posts_args = array( 'post__not_in' => get_option( 'sticky_posts' ) );
-    $posts_query = new WP_Query( $posts_args );
-  ?>
-  <div class="row">
+  <?php $posts = bursa_query_posts_exclude_sticky(); ?>
+
+  <div class="row" id="posts">
     <!-- <div class="col-md-2"></div> -->
     <div class="col-md-8">
-      <?php while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
+      <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
         <div class="card mb-3 border-0">
           <div class="row">
             <div class="col-md-4 rounded" style="background: url(<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium' ) ); ?>) 50% 50% no-repeat; min-height: 225px;">
@@ -48,10 +45,10 @@ get_header();
             </div>
           </div>
         </div>
-      <?php endwhile ?>
+      <?php endwhile; ?>
 
       <nav aria-label="Posts page navigation">
-        <?php bursa_page_links(); ?>
+        <?php bursa_posts_page_links( $posts ); ?>
       </nav>
     </div><!-- .col-md-x -->
 
