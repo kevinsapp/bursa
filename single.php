@@ -16,17 +16,23 @@ get_header();
   // Determine whether or not the sidebar is active,
   // so we can adjust the layout arrordingly.
   $sidebar = is_active_sidebar( 'sidebar' );
-  $class = $sidebar ? 'col-md-8' : 'col-md-12';
 ?>
 
  <div class="container">
    <div class="row border-top pb-4">
-     <div class="<?php echo $class ?>">
+     <?php if( ! $sidebar ) : // no sidebar ?>
+       <div class="col-md-2"></div>
+     <?php endif; ?>
+
+     <div class="col-md-8">
      <?php
      while ( have_posts() ) : the_post();
 
         // Include the single post content template.
   			get_template_part( 'template-parts/content', 'single' );
+
+        // TODO: remove this. just using for testing.
+        the_post_navigation();
 
      endwhile;
      ?>
@@ -44,7 +50,11 @@ get_header();
    </div><!-- .row -->
 
    <div class="row">
-     <div class="<?php echo $class ?> border-top pt-4">
+     <?php if( ! $sidebar ) : // no sidebar ?>
+       <div class="col-md-2"></div>
+     <?php endif; ?>
+
+     <div class="col-md-8 border-top pt-4">
        <?php comments_template(); ?>
      </div>
    </div>

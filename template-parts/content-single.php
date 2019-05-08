@@ -13,33 +13,41 @@ get_header();
 ?>
 
 <article <?php post_class(); ?> >
-  <h1 class="text-dark"><?php the_title(); ?></h1>
-  <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <section class="text-muted mb-4">
-          <?php
-            echo get_avatar(
-              get_the_author_meta( 'ID' ),
-              '60',
-              '',
-              '',
-              array( 'class' => array( 'rounded-circle' ) )
-            );
-          ?>
-          <br />
-          <small>
-            <strong><?php the_author_link(); ?></strong><br>
-            <time><?php the_date(); ?></time><br>
-            Categories: <?php the_category(', '); ?><br>
-            <?php the_tags(); ?>
-          </small>
-        </secion>
-      </div><!-- .col -->
 
-      <div class="col-md-9">
+      <div class="col-md-12">
+        <h1 class="text-dark mb-0"><?php the_title(); ?></h1>
+
+        <!-- post meta -->
+        <div class="row">
+          <div class="col">
+            <div class="card border-0">
+              <div class="card-body">
+                <div class="row">
+                  <?php
+                    echo get_avatar(
+                      get_the_author_meta( 'ID' ),
+                      '48',
+                      '',
+                      '',
+                      array( 'class' => array( 'rounded-circle', 'mr-2' ) )
+                    );
+                  ?>
+                  <small class="card-text text-muted pt-1">
+                    <strong><?php the_author_link(); ?></strong><br>
+                    <time><?php the_date(); ?></time>
+                  </small>
+                </div><!-- .row -->
+              </div><!-- .card-body -->
+            </div><!-- .card -->
+          </div><!-- .col -->
+        </div><!-- .row -->
+
+
+        <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
+
         <?php the_content(); ?>
       </div><!-- .col -->
     </div><!-- .row -->
@@ -49,5 +57,15 @@ get_header();
         <?php wp_link_pages(); ?>
       </div>
     </div>
+
+    <!-- categories and tags -->
+    <div class="row">
+      <div class="col">
+        <span class="text-muted">
+          Categories: <?php the_category(', '); ?> <?php the_tags( '| Tags: '); ?>
+        </span>
+      </div>
+    </div>
+
   </div><!-- .container -->
 </article>

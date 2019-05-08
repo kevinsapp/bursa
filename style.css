@@ -16,20 +16,27 @@ Text Domain: bursa
  * Elements
  */
 
- /* Make sure embeds and iframes fit their containers. */
- embed,
- iframe,
- object,
- video {
- 	margin-bottom: 1.75em;
- 	max-width: 100%;
- 	vertical-align: middle;
- }
+/* Use serif fonts for text paragraph text inside articles */
+article p {
+ font-size: 1.3rem;
+ font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+}
 
- img {
-   max-width: 100%;
-   height: auto;
- }
+ /* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object,
+video {
+	margin-bottom: 1.75em;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/* Make sure images fit their containers. */
+img {
+ max-width: 100%;
+ height: auto;
+}
 
  /**
   * Bootstrap overrides
@@ -131,7 +138,7 @@ div.reply {
 /**
  * Custom theme classes
  */
- 
+
 /* Featured post */
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
