@@ -135,7 +135,7 @@ div.reply {
     border-color: #dee2e6;
 }
 
-/* WordPress galleries */
+/* WordPress galleries - supports the default 3 column layout */
 .gallery {
 	margin: 0 -1.1666667% 1.75em;
 }
@@ -147,38 +147,6 @@ div.reply {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-}
-
-.gallery-columns-1 .gallery-item {
-	max-width: 100%;
-}
-
-.gallery-columns-2 .gallery-item {
-	max-width: 46%;
-}
-
-.gallery-columns-4 .gallery-item {
-	max-width: 22%;
-}
-
-.gallery-columns-5 .gallery-item {
-	max-width: 17%;
-}
-
-.gallery-columns-6 .gallery-item {
-	max-width: 13.5%;
-}
-
-.gallery-columns-7 .gallery-item {
-	max-width: 11%;
-}
-
-.gallery-columns-8 .gallery-item {
-	max-width: 9.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 8%;
 }
 
 /**
