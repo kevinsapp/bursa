@@ -22,6 +22,11 @@ article p {
  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
 }
 
+article h1 {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
  /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
