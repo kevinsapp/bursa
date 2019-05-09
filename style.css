@@ -155,6 +155,10 @@ div.reply {
 	width: 100%;
 }
 
+.widget_media_gallery {
+  margin-top: 1rem;
+}
+
 /* WordPress tags */
 /* Styles courtesy of: https://codepen.io/wbeeftink/pen/dIaDH */
 a[rel="tag"] {
