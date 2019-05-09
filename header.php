@@ -42,15 +42,17 @@
 
     <div class="row py-2">
       <div class="col pl-0">
-        <?php
-          wp_nav_menu(
-            array(
-              'theme_location' => 'main',
-              'container' => 'nav',
-              'menu_class' => 'nav lead'
-            )
-          );
-        ?><!-- .nav -->
+        <div class="nav-scroller py-1 mb-2">
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'main',
+                'container' => 'nav',
+                'menu_class' => 'nav lead'
+              )
+            );
+          ?><!-- .nav -->
+        </div>
       </div>
     </div><!-- .row -->
   </header><!-- header.container -->

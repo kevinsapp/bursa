@@ -217,3 +217,26 @@ a[rel="tag"]:hover::after {
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
 }
+
+/* .nav-scroller: https://getbootstrap.com/docs/4.3/examples/blog/ */
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-scroller .nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  /* padding-bottom: 1rem; */
+  /* margin-top: -1px; */
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  text-overflow: ellipsis;
+}
