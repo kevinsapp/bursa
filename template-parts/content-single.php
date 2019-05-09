@@ -64,7 +64,8 @@ get_header();
     <div class="row">
       <div class="col">
         <span class="text-muted">
-          Categories: <?php the_category(', '); ?> <?php the_tags( '| Tags: '); ?>
+          <?php the_tags( '', '' ); ?><br>
+          Categories: <?php the_category(', '); ?>
         </span>
       </div>
     </div>
