@@ -193,13 +193,13 @@ a[rel="tag"]::after {
 }
 
 a[rel="tag"]:hover {
-  /* background-color: crimson; */
+  /* Bootstrap "dark" color */
   background-color: #343a40;
   color: white;
 }
 
 a[rel="tag"]:hover::after {
-   /* border-left-color: crimson; */
+   /* Bootstrap "dark" color */
    border-left-color: #343a40;
 }
 
