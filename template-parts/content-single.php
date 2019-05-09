@@ -46,7 +46,9 @@ get_header();
         </div><!-- .row -->
 
 
-        <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4']); ?>
+        <div class="text-centered">
+        <?php the_post_thumbnail( 'post-thubmnail', ['class' => 'img-fluid mb-4 mx-auto d-block']); ?>
+        </div>
 
         <?php the_content(); ?>
       </div><!-- .col -->
