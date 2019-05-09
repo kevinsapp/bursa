@@ -56,10 +56,12 @@ get_header();
                 </h5>
                 <p class="card-text"><?php the_excerpt(); ?></p>
                 <p class="card-text">
-                  <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-                    <?php the_author(); ?>
-                  </a>
-                  <time class="text-muted"><?php the_date() ?></time>
+                  <small>
+                    <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+                      <?php the_author(); ?>
+                    </a>
+                    <time class="text-muted"><?php the_date() ?></time>
+                  </small>
                 </p>
                 <small class="text-muted mt-3">
                   <?php the_tags( '', '' ); ?><br>
