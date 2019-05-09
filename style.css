@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*
 Theme Name: Bursa
 Theme URI: https://github.com/kevinsapp/bursa
@@ -11,15 +12,13 @@ License: GNU General Public License v3
 License URI: LICENSE
 Text Domain: bursa
 */
-
 /**
  * Elements
  */
-
 /* Use serif fonts for text paragraph text inside articles */
 article p {
- font-size: 1.3rem;
- font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+  font-size: 1.3rem;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 /* Title text should not overflow container */
@@ -33,21 +32,20 @@ embed,
 iframe,
 object,
 video {
-	margin-bottom: 1.75em;
-	max-width: 100%;
-	vertical-align: middle;
+  margin-bottom: 1.75em;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 /* Make sure images fit their containers. */
 img {
- max-width: 100%;
- height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
- /**
+/**
   * Bootstrap overrides
   */
-
 /* https://getbootstrap.com/docs/4.3/components/card/#card-columns */
 @media (min-width: 576px) {
   .card-columns {
@@ -58,7 +56,6 @@ img {
 /**
  * WordPress classes
  */
-
 /* core classes */
 .wp-caption {
   margin-bottom: 1.75em;
@@ -75,17 +72,17 @@ img {
 }
 
 .sticky {
-	display: none;
+  display: none;
 }
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
-	/* many screen reader and browser combinations announce broken words as they would appear visually */
-	word-wrap: normal !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  /* many screen reader and browser combinations announce broken words as they would appear visually */
+  word-wrap: normal !important;
 }
 
 .gallery-caption {
@@ -98,7 +95,7 @@ img {
   padding-top: 0.5384615385em;
 }
 
-.bypostauthor { }
+.bypostauthor {}
 
 .alignleft {
   float: left;
@@ -106,14 +103,14 @@ img {
 }
 
 .alignright {
-	float: right;
-	margin: 0.375em 0 1.75em 1.75em;
+  float: right;
+  margin: 0.375em 0 1.75em 1.75em;
 }
 
 .aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto 1.75em;
+  clear: both;
+  display: block;
+  margin: 0 auto 1.75em;
 }
 
 /* WordPress reply divs which wrap the reply links in the comments */
@@ -134,25 +131,25 @@ div.reply {
 }
 
 .post-page-numbers:hover {
-    z-index: 2;
-    color: #0056b3;
-    text-decoration: none;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
+  z-index: 2;
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 
 /* WordPress galleries - supports the default 3 column layout */
 .gallery {
-	margin: 0 -1.1666667% 1.75em;
+  margin: 0 -1.1666667% 1.75em;
 }
 
 .gallery-item {
-	display: inline-block;
-	max-width: 33.33%;
-	padding: 0 1.1400652% 2.2801304%;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
+  display: inline-block;
+  max-width: 33.33%;
+  padding: 0 1.1400652% 2.2801304%;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
 }
 
 .widget_media_gallery {
@@ -205,14 +202,13 @@ a[rel="tag"]:hover {
 }
 
 a[rel="tag"]:hover::after {
-   /* Bootstrap "dark" color */
-   border-left-color: #343a40;
+  /* Bootstrap "dark" color */
+  border-left-color: #343a40;
 }
 
 /**
  * Custom theme classes
  */
-
 /* Featured post */
 #bursa-featured-text-area {
   background: rgba(52, 58, 64, 0.8) !important;
