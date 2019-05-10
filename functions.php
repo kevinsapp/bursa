@@ -34,8 +34,8 @@ function bursa_setup() {
   add_theme_support( 'post-thumbnails' );
   set_post_thumbnail_size( 1024, 9999 );
 
-  // This theme users wp_nav_menu() in one location.
-  register_nav_menu( 'main', 'Main Menu' );
+  // This theme uses wp_nav_menu() in one location.
+  register_nav_menu( 'header', __( 'Header Navigation Menu', 'bursa' ) );
 
   /*
 	 * Switch default core markup for search form, comment form, and comments
