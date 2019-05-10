@@ -157,7 +157,7 @@ div.reply {
 }
 
 /* WordPress tags */
-/* Styles courtesy of: https://codepen.io/wbeeftink/pen/dIaDH */
+/* "Tag" styles courtesy of: https://codepen.io/wbeeftink/pen/dIaDH */
 a[rel="tag"] {
   background: #eee;
   border-radius: 3px 0 0 3px;
@@ -204,6 +204,12 @@ a[rel="tag"]:hover {
 a[rel="tag"]:hover::after {
   /* Bootstrap "dark" color */
   border-left-color: #343a40;
+}
+
+/* overrides for search widget placed in the header */
+header .search-form {
+  margin-top: 0!important;
+  margin-bottom: 0!important;
 }
 
 /**

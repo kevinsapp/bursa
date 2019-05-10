@@ -27,7 +27,7 @@
 <body <?php body_class(); ?> >
   <header class="container">
     <div class="row border-bottom bg-dark shadow-sm rounded-bottom">
-      <div class="col py-2">
+      <div class="col-md-6 py-2">
         <h2 class="mb-0">
           <a href="<?php echo home_url(); ?>" class="text-white">
             <?php bloginfo('name'); ?>
@@ -36,6 +36,10 @@
         <p class="text-muted text-white-50 mb-0">
             <?php bloginfo('description'); ?>
         </p>
+      </div><!-- .col -->
+
+      <div class="col-md-6 py-2 align-self-center">
+        <?php dynamic_sidebar( 'header-content' ); ?>
       </div><!-- .col -->
     </div><!-- .row -->
 

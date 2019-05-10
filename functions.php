@@ -112,6 +112,19 @@ add_filter( 'nav_menu_link_attributes', 'bursa_nav_link_attributes' );
  * Register widget areas.
  */
 function bursa_widgets_init() {
+	// Post Sidebar
+  register_sidebar(
+    array(
+      'name'          => __( 'Header Content', 'bursa' ),
+      'id'            => __( 'header-content', 'bursa' ),
+      'description'   => __( 'Add widgets here to appear in your header, to the right of the site identity.', 'bursa' ),
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h5 class="widget-title text-muted text-white-50">',
+      'after_title'   => '</h5>',
+    )
+  );
+
   // Blog Sidebar
   register_sidebar(
     array(
