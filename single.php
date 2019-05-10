@@ -15,7 +15,7 @@ get_header();
 <?php
   // Determine whether or not the sidebar is active,
   // so we can adjust the layout arrordingly.
-  $sidebar = is_active_sidebar( 'sidebar' );
+  $sidebar = is_active_sidebar( 'post-sidebar' );
 ?>
 
  <div class="container">
@@ -43,7 +43,7 @@ get_header();
        <h1 style="visibility: hidden">
          Additional Content
        </h1><!-- add space for alignment -->
-       <?php dynamic_sidebar( 'sidebar' ); ?>
+       <?php dynamic_sidebar( 'post-sidebar' ); ?>
      </aside><!-- .col-md-4 -->
     <?php endif ?>
 

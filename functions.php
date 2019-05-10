@@ -112,12 +112,25 @@ add_filter( 'nav_menu_link_attributes', 'bursa_nav_link_attributes' );
  * Register widget areas.
  */
 function bursa_widgets_init() {
-  // Sidebar
+  // Blog Sidebar
   register_sidebar(
     array(
-      'name'          => __( 'Sidebar', 'bursa' ),
-      'id'            => __( 'sidebar', 'bursa' ),
-      'description'   => __( 'Add widgets here to appear in the sidebar.', 'bursa' ),
+      'name'          => __( 'Blog Sidebar', 'bursa' ),
+      'id'            => __( 'blog-sidebar', 'bursa' ),
+      'description'   => __( 'Add widgets here to appear along the right side of your blog page.', 'bursa' ),
+      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h5 class="widget-title text-dark">',
+      'after_title'   => '</h5>',
+    )
+  );
+
+	// Post Sidebar
+  register_sidebar(
+    array(
+      'name'          => __( 'Post Sidebar', 'bursa' ),
+      'id'            => __( 'post-sidebar', 'bursa' ),
+      'description'   => __( 'Add widgets here to appear along the right side of your posts.', 'bursa' ),
       'before_widget' => '<section id="%1$s" class="widget %2$s">',
       'after_widget'  => '</section>',
       'before_title'  => '<h5 class="widget-title text-dark">',

@@ -52,12 +52,12 @@ get_header();
       </nav>
     </div><!-- .col-md-x -->
 
-    <?php if( is_active_sidebar( 'sidebar' ) ) : ?>
+    <?php if( is_active_sidebar( 'blog-sidebar' ) ) : ?>
      <aside class="col-md-4">
        <!-- <h1 style="visibility: hidden">
          Additional Content
        </h1>--><!-- add space for alignment -->
-       <?php dynamic_sidebar( 'sidebar' ); ?>
+       <?php dynamic_sidebar( 'blog-sidebar' ); ?>
      </aside><!-- .col-md-4 -->
     <?php endif ?>
 
