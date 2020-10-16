@@ -17,10 +17,10 @@ Text Domain: bursa
  * Elements
  */
 /* Use serif fonts for text paragraph text inside articles */
-article p {
+/* article p {
   font-size: 1.3rem;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-}
+} */
 
 /* Title text should not overflow container */
 article h1 {
@@ -96,8 +96,6 @@ img {
   padding-top: 0.5384615385em;
 }
 
-.bypostauthor {}
-
 .alignleft {
   float: left;
   margin: 0.375em 1.75em 1.75em 0;
@@ -171,6 +169,7 @@ a[rel="tag"] {
   margin: 0 10px 10px 0;
   text-decoration: none;
   -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 
 a[rel="tag"]::before {
