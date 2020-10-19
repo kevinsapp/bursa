@@ -13,9 +13,19 @@ get_header();
 ?>
 
 <div class="container">
-  <div class="row">
+  <div class="row border-top">
     <!-- <div class="col-md-2"></div> -->
-    <div class="col-md-8">
+    <?php
+      // Determine whether or not the sidebar is active,
+      // so we can adjust the layout arrordingly.
+      $sidebar = is_active_sidebar( 'blog-sidebar' );
+      $class = $sidebar ? 'col-md-8' : 'col-md-12';
+    ?>
+    <div class="<?php echo $class ?>">
+      <!-- <h1 class="text-dark">Search Results</h1> -->
+      <h1 style="visibility: hidden">
+        Search Results
+      </h1><!-- add space for alignment -->
       <?php while ( have_posts() ) : the_post(); ?>
         <article <?php post_class( 'mb-4 border-bottom' ) ?> >
           <h3>
@@ -32,11 +42,15 @@ get_header();
       </nav>
     </div><!-- .col-md-x -->
 
-    <?php if( is_active_sidebar( 'sidebar' ) ) : ?>
-     <aside class="col-md-4">
-       <?php dynamic_sidebar( 'sidebar' ); ?>
-     </aside><!-- .col-md-4 -->
+    <?php if( $sidebar ) : ?>
+      <aside class="col-md-4">
+        <h1 style="visibility: hidden">
+          Additional Content
+        </h1><!-- add space for alignment -->
+        <?php dynamic_sidebar( 'blog-sidebar' ); ?>
+      </aside><!-- .col-md-4 -->
     <?php endif ?>
+    </div><!-- .row -->
 
   </div><!-- .row -->
 </div><!-- .container -->
